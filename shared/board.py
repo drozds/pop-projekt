@@ -1,6 +1,8 @@
 import numpy as np
 
+
 class Board:
+
     def __init__(self, size) -> None:
         self._size = size
         self._fields = np.zeros((size, size))
@@ -18,11 +20,19 @@ class Board:
     def get_field(self, row, col):
         return self._fields[row][col]
 
+    def set_field(self, row, col, field):
+        self._fields[row][col] = field
+
     def get_row(self, row):
         return self._fields[row]
 
     def set_fields(self, fields):
         self._fields = fields
+
+    def swap_fields(self, row1, col1, row2, col2):
+        tmp = self._fields[row1, col1]
+        self._fields[row1, col1] = self._fields[row2, col2]
+        self._fields[row2, col2] = tmp
 
     def __str__(self) -> str:
         board_str = ""
@@ -30,5 +40,5 @@ class Board:
             for col in row:
                 board_str += str(col) + " "
             board_str += "\n"
-        
+
         return board_str

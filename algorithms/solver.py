@@ -1,7 +1,9 @@
 import numpy as np
 from shared.board import Board
 
+
 class Solver:
+
     def __init__(self, board: Board, constraints) -> None:
         self._board = board
         self._top_constr = constraints[0]
@@ -89,11 +91,11 @@ class Solver:
         for col in range(0, self.get_size()):
             if self.check_col_constraint(board, col):
                 return False
-            
+
             for row in range(0, self.get_size()):
                 if self.check_row_constraint(board, row):
                     return False
-        
+
         return True
 
     def check_if_val_unique(self, board: Board, col, val):
