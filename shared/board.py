@@ -21,6 +21,9 @@ class Board:
     def get_row(self, row):
         return self._fields[row]
 
+    def set_fields(self, fields):
+        self._fields = fields
+
     def __str__(self) -> str:
         board_str = ""
         for row in self._fields:
