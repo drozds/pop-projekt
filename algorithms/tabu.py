@@ -6,6 +6,7 @@ from shared.board import Board
 
 
 class Tabu(Solver):
+
     def __init__(self, board: Board, constraints) -> None:
         super().__init__(board, constraints)
         self.row_params = np.array([])
@@ -17,11 +18,11 @@ class Tabu(Solver):
     def run(self):
         print("Tabu algorithm has started solving the problem")
         loops = 0
-        self.rand_init()
+        self.rand_init(self._board)
 
         while not self.is_solution(self._board):
             if loops == self.LOOP_RESET:
-                self.rand_init()
+                self.rand_init(self._board)
                 loops = 0
 
             self.calc_rows_loss_func()
@@ -51,16 +52,16 @@ class Tabu(Solver):
                 if diff > max_diff:
                     max_diff = diff
 
-                    self.row_params[row].fields_to_swap = np.array([[col, neighbour]])
+                    self.row_params[row].fields_to_swap = np.array(
+                        [[col, neighbour]])
                 if diff == max_diff:
                     if len(self.row_params[row].fields_to_swap) == 0:
                         self.row_params[row].fields_to_swap = np.array(
-                            [[col, neighbour]]
-                        )
+                            [[col, neighbour]])
                     else:
                         self.row_params[row].fields_to_swap = np.concatenate(
-                            (self.row_params[row].fields_to_swap, [[col, neighbour]])
-                        )
+                            (self.row_params[row].fields_to_swap,
+                             [[col, neighbour]]))
 
         self.row_params[row].loss_func -= max_diff
 
@@ -73,11 +74,12 @@ class Tabu(Solver):
 
     def field_loss_func(self, col, row):
         loss_func = 0
-        loss_func += self.check_row_constraint(self._board, row) * self.get_size()
-        loss_func += self.check_col_constraint(self._board, col) * self.get_size()
-        loss_func += self.check_if_val_unique(
-            self._board, col, self._board.get_field(row, col)
-        )
+        loss_func += self.check_row_constraint(self._board,
+                                               row) * self.get_size()
+        loss_func += self.check_col_constraint(self._board,
+                                               col) * self.get_size()
+        loss_func += self.check_if_val_unique(self._board, col,
+                                              self._board.get_field(row, col))
 
         return loss_func
 
@@ -103,12 +105,10 @@ class Tabu(Solver):
             self.row_params[row].tabu_list = list
         else:
             self.row_params[row].tabu_list = np.concatenate(
-                (self.row_params[row].tabu_list, [tabu_row])
-            )
+                (self.row_params[row].tabu_list, [tabu_row]))
         if len(self.row_params[row].tabu_list) > self.TABU_LENGTH:
             self.row_params[row].tabu_list = np.delete(
-                self.row_params[row].tabu_list, 0, 0
-            )
+                self.row_params[row].tabu_list, 0, 0)
 
     def check_if_in_tabu(self, row):
         tabu_row = np.array([])
@@ -126,13 +126,16 @@ class Tabu(Solver):
         if self.row_params[row].fields_to_swap.size == 0:
             return
 
-        rand_swap = random.randint(0, len(self.row_params[row].fields_to_swap) - 1)
+        rand_swap = random.randint(
+            0,
+            len(self.row_params[row].fields_to_swap) - 1)
         fields_to_swap = self.row_params[row].fields_to_swap[rand_swap]
 
         self._board.swap_fields(row, fields_to_swap[0], row, fields_to_swap[1])
 
 
 class Row:
+
     def __init__(self, loss_func) -> None:
         self.loss_func = loss_func
         self.fields_to_swap = None

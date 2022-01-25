@@ -14,7 +14,7 @@ class Solver:
     def get_size(self):
         return self._board.get_size()
 
-    def rand_init(self):
+    def rand_init(self, board: Board):
         fields = None
         for _ in range(0, self.get_size() - 1):
             stop = False
@@ -31,7 +31,7 @@ class Solver:
                         fields = np.vstack((fields, row))
                         stop = True
 
-        self._board.set_fields(fields)
+        board.set_fields(fields)
 
     def check_col_constraint(self, board: Board, col):
         seen_pyramids = 0

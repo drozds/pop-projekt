@@ -2,7 +2,6 @@ import numpy as np
 
 
 class Board:
-
     def __init__(self, size) -> None:
         self._size = size
         self._fields = np.zeros((size, size))
@@ -41,7 +40,7 @@ class Board:
         board_str = ""
         for row in self._fields:
             for col in row:
-                board_str += str(col) + " "
+                board_str += str(int(col)) + " "
             board_str += "\n"
 
         return board_str
