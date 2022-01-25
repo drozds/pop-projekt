@@ -6,10 +6,10 @@ class Solver:
 
     def __init__(self, board: Board, constraints) -> None:
         self._board = board
-        self._top_constr = constraints[0]
-        self._bottom_constr = constraints[1]
-        self._left_constr = constraints[2]
-        self._right_constr = constraints[3]
+        self._top_constr = constraints["top"]
+        self._bottom_constr = constraints["bottom"]
+        self._left_constr = constraints["left"]
+        self._right_constr = constraints["right"]
 
     def get_size(self):
         return self._board.get_size()
