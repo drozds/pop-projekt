@@ -26,6 +26,9 @@ class Board:
     def get_row(self, row):
         return self._fields[row]
 
+    def get_col(self, col):
+        return self._fields[:, col]
+
     def set_fields(self, fields):
         self._fields = fields
 

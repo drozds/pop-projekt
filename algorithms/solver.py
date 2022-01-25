@@ -25,7 +25,7 @@ class Solver:
                 else:
                     unique_row = True
                     for existing_row in fields:
-                        if (existing_row == row).any():
+                        if (existing_row == row).all():
                             unique_row = False
                     if unique_row:
                         fields = np.vstack((fields, row))
@@ -89,11 +89,13 @@ class Solver:
 
     def is_solution(self, board):
         for col in range(0, self.get_size()):
-            if self.check_col_constraint(board, col):
+            if not self.is_col_unique(col) or self.check_col_constraint(
+                    board, col):
                 return False
 
             for row in range(0, self.get_size()):
-                if self.check_row_constraint(board, row):
+                if not self.is_row_unique(row) or self.check_row_constraint(
+                        board, row):
                     return False
 
         return True
@@ -105,3 +107,11 @@ class Solver:
                 matched_vals += 1
 
         return matched_vals
+
+    def is_row_unique(self, row):
+        return len(np.unique(self._board.get_row(row))) == len(
+            self._board.get_row(row))
+
+    def is_col_unique(self, col):
+        return len(np.unique(self._board.get_col(col))) == len(
+            self._board.get_col(col))

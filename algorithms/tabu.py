@@ -15,6 +15,7 @@ class Tabu(Solver):
             self.row_params = np.append(self.row_params, Row(0))
 
     def run(self):
+        print("Tabu algorithm has started solving the problem")
         loops = 0
         self.rand_init()
 
@@ -49,11 +50,17 @@ class Tabu(Solver):
                 diff = self.loss_func_diff_after_swap(col, row, neighbour)
                 if diff > max_diff:
                     max_diff = diff
+
                     self.row_params[row].fields_to_swap = np.array([[col, neighbour]])
                 if diff == max_diff:
-                    self.row_params[row].fields_to_swap = np.concatenate(
-                        (self.row_params[row].fields_to_swap, [[col, neighbour]])
-                    )
+                    if len(self.row_params[row].fields_to_swap) == 0:
+                        self.row_params[row].fields_to_swap = np.array(
+                            [[col, neighbour]]
+                        )
+                    else:
+                        self.row_params[row].fields_to_swap = np.concatenate(
+                            (self.row_params[row].fields_to_swap, [[col, neighbour]])
+                        )
 
         self.row_params[row].loss_func -= max_diff
 
@@ -91,8 +98,6 @@ class Tabu(Solver):
         tabu_row = np.array([])
         for col in range(0, self.get_size()):
             tabu_row = np.append(tabu_row, self._board.get_field(row, col))
-        if len(tabu_row) > self.TABU_LENGTH:
-            tabu_row = np.delete(tabu_row, 0)
         if self.row_params[row].tabu_list is None:
             list = np.array([tabu_row])
             self.row_params[row].tabu_list = list
@@ -100,9 +105,10 @@ class Tabu(Solver):
             self.row_params[row].tabu_list = np.concatenate(
                 (self.row_params[row].tabu_list, [tabu_row])
             )
-        # if self.row_params[row].tabu_list.size > self.TABU_LENGTH:
-        #     self.row_params[row].tabu_list = np.delete(self.row_params[row].tabu_list, 0, 1)
-        # self.row_params[row].tabu_list = tabu_list
+        if len(self.row_params[row].tabu_list) > self.TABU_LENGTH:
+            self.row_params[row].tabu_list = np.delete(
+                self.row_params[row].tabu_list, 0, 0
+            )
 
     def check_if_in_tabu(self, row):
         tabu_row = np.array([])
@@ -111,7 +117,7 @@ class Tabu(Solver):
 
         if self.row_params[row].tabu_list is not None:
             for tabu in self.row_params[row].tabu_list:
-                if tabu == tabu_row:
+                if (tabu == tabu_row).all():
                     return True
 
         return False
