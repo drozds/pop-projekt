@@ -3,7 +3,6 @@ from shared.board import Board
 
 
 class Solver:
-
     def __init__(self, board: Board, constraints) -> None:
         self._board = board
         self._top_constr = constraints["top"]
@@ -38,7 +37,7 @@ class Solver:
         highest_pyramid = 0
         broken_constraints = 0
         if self._top_constr[col] != 0:
-            for row in range(0, self.get_size()):
+            for row in range(self.get_size()):
                 curr_pyramid = board.get_field(row, col)
                 if curr_pyramid > highest_pyramid:
                     highest_pyramid = curr_pyramid
@@ -65,7 +64,7 @@ class Solver:
         highest_pyramid = 0
         broken_constraints = 0
         if self._left_constr[row] != 0:
-            for col in range(0, self.get_size()):
+            for col in range(self.get_size()):
                 curr_pyramid = board.get_field(row, col)
                 if curr_pyramid > highest_pyramid:
                     highest_pyramid = curr_pyramid
@@ -88,30 +87,30 @@ class Solver:
         return broken_constraints
 
     def is_solution(self, board):
-        for col in range(0, self.get_size()):
-            if not self.is_col_unique(col) or self.check_col_constraint(
-                    board, col):
+        for col in range(self.get_size()):
+            if not self.is_col_unique(board, col) or self.check_col_constraint(
+                board, col
+            ):
                 return False
 
-            for row in range(0, self.get_size()):
-                if not self.is_row_unique(row) or self.check_row_constraint(
-                        board, row):
+            for row in range(self.get_size()):
+                if not self.is_row_unique(board, row) or self.check_row_constraint(
+                    board, row
+                ):
                     return False
 
         return True
 
     def check_if_val_unique(self, board: Board, col, val):
         matched_vals = -1
-        for row in range(0, self.get_size()):
+        for row in range(self.get_size()):
             if board.get_field(row, col) == val:
                 matched_vals += 1
 
         return matched_vals
 
-    def is_row_unique(self, row):
-        return len(np.unique(self._board.get_row(row))) == len(
-            self._board.get_row(row))
+    def is_row_unique(self, board, row):
+        return len(np.unique(board.get_row(row))) == len(board.get_row(row))
 
-    def is_col_unique(self, col):
-        return len(np.unique(self._board.get_col(col))) == len(
-            self._board.get_col(col))
+    def is_col_unique(self, board, col):
+        return len(np.unique(board.get_col(col))) == len(board.get_col(col))

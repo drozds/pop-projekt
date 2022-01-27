@@ -12,22 +12,18 @@ class Genetic(Solver):
             self._pop = np.append(self._pop, Individual(board.get_size()))
             self.rand_init(self._pop[i].board)
         self._children = np.empty(pop_size, dtype=Individual)
-        self._pop_scores = np.empty(pop_size)
+        self._pop_scores = np.empty(pop_size, dtype=np.double)
         self._probability = np.empty(pop_size, dtype=Range)
         for i in range(0, pop_size):
             self._probability[i] = Range()
         self._solution_found = False
-        self.MUTATION = 0.75
-
-    def generate_board(self):
-        b = Board(self._board.get_size())
-        self.rand_init(b)
-        return b
+        self.MUTATION = 0.9
 
     def run(self):
         print("Genetic algorithm has started solving the problem")
         i = 0
         while not self._solution_found:
+            print(i)
             self.asses_pop(self._pop, False)
             self.selection()
             self.crossover()
@@ -81,8 +77,8 @@ class Genetic(Solver):
 
     def check_if_val_unique_in_row(self, board, row, val):
         matched_vals = -1
-        for col in range(0, self.get_size()):
-            if self._board.get_field(row, col) == val:
+        for col in range(self.get_size()):
+            if board.get_field(row, col) == val:
                 matched_vals += 1
 
         return matched_vals
@@ -136,23 +132,24 @@ class Genetic(Solver):
             self._children[i] = self.create_child(parent1, parent2)
 
     def mutation(self):
+        board_size = self._board.get_size()
         for i in range(0, self._pop_size):
-            for j in range(0, self.get_size()):
-                for k in range(0, self.get_size()):
+            for j in range(0, board_size):
+                for k in range(0, board_size):
                     if np.random.rand() > self.MUTATION:
                         self._children[i].board.set_field(
-                            k, j, np.random.randint(self.get_size()) + 1
+                            k,
+                            j,
+                            np.random.randint(board_size) + 1,
                         )
 
     def succession(self):
         if self._pop[0].score > self._children[0].score:
             self._pop[0] = self._children[0]
         else:
-            self._children = np.delete(self._children, 0)
-        for i in range(1, self._pop_size):
+            self._children[0] = None
+        for i in range(1, self._pop_size - 1):
             self._pop[i] = self._children[i]
-        print("The best: ")
-        print(self._pop[0].score)
 
     def create_child(self, parent1, parent2):
         size = parent1.board.get_size()
@@ -188,7 +185,7 @@ class Genetic(Solver):
 class Individual:
     def __init__(self, size):
         self.board = Board(size)
-        self.score = None
+        self.score = 0
 
     def __lt__(self, i):
         return self.score < i.score
@@ -196,8 +193,11 @@ class Individual:
     def __gt__(self, i):
         return self.score > i.score
 
+    def __str__(self) -> str:
+        return f"Board:\n{str(self.board)}\nScore: {self.score}"
+
 
 class Range:
     def __init__(self) -> None:
-        self.start = None
-        self.end = None
+        self.start = 0
+        self.end = 0

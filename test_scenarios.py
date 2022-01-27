@@ -2,6 +2,8 @@
 import json
 import time
 import warnings
+
+import numpy as np
 from algorithms.genetic import Genetic
 from shared.board import Board
 from algorithms.tabu import Tabu
@@ -9,9 +11,10 @@ from algorithms.tabu import Tabu
 
 def main():
     warnings.filterwarnings("ignore")
+    np.random.seed(12)
     size, constraints = get_input_data()
-    # run_tabu(size, constraints)
     run_genetic(size, constraints)
+    run_tabu(size, constraints)
 
 
 def run_tabu(size, constraints):
@@ -25,11 +28,11 @@ def run_tabu(size, constraints):
 
 def run_genetic(size, constraints):
     board = Board(size)
-    genetic = Genetic(board, constraints, 5)
+    genetic = Genetic(board, constraints, 500)
     start = time.time()
-    genetic.run()
-    end = time.time()
-    print("Finished in time: ", end - start)
+    if genetic.run():
+        end = time.time()
+        print("Finished in time: ", end - start)
 
 
 def get_input_data():
