@@ -1,0 +1,195 @@
+(.venv) PS C:\Users\natan\Desktop\pop-projekt> python .\test_scenarios.py
+2022-01-28 20:35:32.467 | INFO     | __main__:main:31 - Test case number 0
+2022-01-28 20:35:32.470 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:35:32.491 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:35:32.494 | SUCCESS  | algorithms.tabu:run:38 - 4 2 3 1 
+3 4 1 2 
+1 3 2 4 
+2 1 4 3 
+
+2022-01-28 20:35:32.499 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 0.03 seconds
+2022-01-28 20:35:32.501 | INFO     | __main__:main:31 - Test case number 1
+2022-01-28 20:35:32.504 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:35:34.800 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:35:36.973 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:35:39.308 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:35:41.464 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:35:44.500 | INFO     | algorithms.tabu:run:27 - Performed 2500 iterations
+2022-01-28 20:35:47.131 | INFO     | algorithms.tabu:run:27 - Performed 3000 iterations
+2022-01-28 20:35:50.575 | INFO     | algorithms.tabu:run:27 - Performed 3500 iterations
+2022-01-28 20:35:53.513 | INFO     | algorithms.tabu:run:27 - Performed 4000 iterations
+2022-01-28 20:35:53.567 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:35:53.570 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1 
+1 2 3 4 
+2 1 4 3 
+
+2022-01-28 20:35:53.573 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 21.07 seconds
+2022-01-28 20:35:53.575 | INFO     | __main__:main:31 - Test case number 2
+2022-01-28 20:35:53.577 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:35:56.076 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:35:58.803 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:36:01.031 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:36:03.289 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:36:05.458 | INFO     | algorithms.tabu:run:27 - Performed 2500 iterations
+2022-01-28 20:36:07.672 | INFO     | algorithms.tabu:run:27 - Performed 3000 iterations
+2022-01-28 20:36:09.823 | INFO     | algorithms.tabu:run:27 - Performed 3500 iterations
+2022-01-28 20:36:11.988 | INFO     | algorithms.tabu:run:27 - Performed 4000 iterations
+2022-01-28 20:36:14.154 | INFO     | algorithms.tabu:run:27 - Performed 4500 iterations
+2022-01-28 20:36:16.305 | INFO     | algorithms.tabu:run:27 - Performed 5000 iterations
+2022-01-28 20:36:18.459 | INFO     | algorithms.tabu:run:27 - Performed 5500 iterations
+2022-01-28 20:36:20.642 | INFO     | algorithms.tabu:run:27 - Performed 6000 iterations
+2022-01-28 20:36:22.917 | INFO     | algorithms.tabu:run:27 - Performed 6500 iterations
+2022-01-28 20:36:25.080 | INFO     | algorithms.tabu:run:27 - Performed 7000 iterations
+2022-01-28 20:36:27.309 | INFO     | algorithms.tabu:run:27 - Performed 7500 iterations
+2022-01-28 20:36:29.534 | INFO     | algorithms.tabu:run:27 - Performed 8000 iterations
+2022-01-28 20:36:29.774 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:36:29.784 | SUCCESS  | algorithms.tabu:run:38 - 2 4 1 3 
+4 3 2 1
+1 2 3 4
+3 1 4 2
+
+2022-01-28 20:36:29.797 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 36.22 seconds
+2022-01-28 20:36:29.801 | INFO     | __main__:main:31 - Test case number 3
+2022-01-28 20:36:29.804 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:36:32.807 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:36:32.810 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:36:32.821 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 3.02 seconds
+2022-01-28 20:36:32.824 | INFO     | __main__:main:31 - Test case number 4
+2022-01-28 20:36:32.827 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:36:32.839 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:36:32.842 | SUCCESS  | algorithms.tabu:run:38 - 2 4 1 3 
+4 3 2 1
+1 2 3 4
+3 1 4 2
+
+2022-01-28 20:36:32.845 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 0.02 seconds
+2022-01-28 20:36:32.847 | INFO     | __main__:main:31 - Test case number 5
+2022-01-28 20:36:32.851 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:36:35.833 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:36:38.471 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:36:41.110 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:36:44.222 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:36:47.047 | INFO     | algorithms.tabu:run:27 - Performed 2500 iterations
+2022-01-28 20:36:50.100 | INFO     | algorithms.tabu:run:27 - Performed 3000 iterations
+2022-01-28 20:36:50.925 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:36:50.929 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:36:50.933 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 18.08 seconds
+2022-01-28 20:36:50.935 | INFO     | __main__:main:31 - Test case number 6
+2022-01-28 20:36:50.938 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:36:55.167 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:36:58.877 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:37:01.561 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:37:04.321 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:37:07.399 | INFO     | algorithms.tabu:run:27 - Performed 2500 iterations
+2022-01-28 20:37:10.869 | INFO     | algorithms.tabu:run:27 - Performed 3000 iterations
+2022-01-28 20:37:14.493 | INFO     | algorithms.tabu:run:27 - Performed 3500 iterations
+2022-01-28 20:37:18.343 | INFO     | algorithms.tabu:run:27 - Performed 4000 iterations
+2022-01-28 20:37:21.236 | INFO     | algorithms.tabu:run:27 - Performed 4500 iterations
+2022-01-28 20:37:23.921 | INFO     | algorithms.tabu:run:27 - Performed 5000 iterations
+2022-01-28 20:37:26.446 | INFO     | algorithms.tabu:run:27 - Performed 5500 iterations
+2022-01-28 20:37:27.543 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:37:27.548 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:37:27.552 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 36.61 seconds
+2022-01-28 20:37:27.556 | INFO     | __main__:main:31 - Test case number 7
+2022-01-28 20:37:27.559 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:37:30.881 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:37:34.141 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:37:37.326 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:37:40.241 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:37:43.818 | INFO     | algorithms.tabu:run:27 - Performed 2500 iterations
+2022-01-28 20:37:46.727 | INFO     | algorithms.tabu:run:27 - Performed 3000 iterations
+2022-01-28 20:37:47.440 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:37:47.443 | SUCCESS  | algorithms.tabu:run:38 - 2 4 1 3 
+4 3 2 1
+1 2 3 4
+3 1 4 2
+
+2022-01-28 20:37:47.451 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 19.89 seconds
+2022-01-28 20:37:47.454 | INFO     | __main__:main:31 - Test case number 8
+2022-01-28 20:37:47.457 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:37:50.884 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:37:54.019 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:37:57.176 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:37:58.862 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:37:58.866 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:37:58.876 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 11.42 seconds
+2022-01-28 20:37:58.885 | INFO     | __main__:main:31 - Test case number 9
+2022-01-28 20:37:58.889 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:37:58.904 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:37:58.907 | SUCCESS  | algorithms.tabu:run:38 - 2 4 1 3 
+4 3 2 1
+1 2 3 4
+3 1 4 2
+
+2022-01-28 20:37:58.911 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 0.02 seconds
+2022-01-28 20:37:58.915 | INFO     | __main__:main:31 - Test case number 10
+2022-01-28 20:37:58.919 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:38:01.982 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:38:04.835 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:38:06.254 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:38:06.257 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:38:06.260 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 7.34 seconds
+2022-01-28 20:38:06.262 | INFO     | __main__:main:31 - Test case number 11
+2022-01-28 20:38:06.265 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:38:09.660 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:38:12.316 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:38:12.320 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:38:12.325 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 6.06 seconds
+2022-01-28 20:38:12.334 | INFO     | __main__:main:31 - Test case number 12
+2022-01-28 20:38:12.342 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:38:13.085 | SUCCESS  | algorithms.tabu:run:37 - Solution: 
+2022-01-28 20:38:13.088 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2 
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2 1 4 3
+
+2022-01-28 20:38:20.778 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 7.68 seconds
+2022-01-28 20:38:20.781 | INFO     | __main__:main:31 - Test case number 14
+2022-01-28 20:38:20.784 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:38:20.800 | SUCCESS  | algorithms.tabu:run:37 - Solution:
+2022-01-28 20:38:20.803 | SUCCESS  | algorithms.tabu:run:38 - 3 4 1 2
+4 3 2 1
+1 2 3 4
+2 1 4 3
+
+2022-01-28 20:38:20.810 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 0.03 seconds
+2022-01-28 20:38:20.819 | INFO     | __main__:main:31 - Test case number 15
+2022-01-28 20:38:20.828 | INFO     | algorithms.tabu:run:18 - Tabu algorithm has started solving the problem
+2022-01-28 20:38:25.773 | INFO     | algorithms.tabu:run:27 - Performed 500 iterations
+2022-01-28 20:38:29.599 | INFO     | algorithms.tabu:run:27 - Performed 1000 iterations
+2022-01-28 20:38:33.319 | INFO     | algorithms.tabu:run:27 - Performed 1500 iterations
+2022-01-28 20:38:36.880 | INFO     | algorithms.tabu:run:27 - Performed 2000 iterations
+2022-01-28 20:38:36.964 | SUCCESS  | algorithms.tabu:run:37 - Solution:
+2022-01-28 20:38:36.968 | SUCCESS  | algorithms.tabu:run:38 - 2 4 1 3
+4 3 2 1
+1 2 3 4
+3 1 4 2
+
+2022-01-28 20:38:36.975 | INFO     | shared.miscellaneous:run_tabu:19 - Finished in 16.15 seconds

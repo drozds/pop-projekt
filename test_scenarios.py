@@ -31,7 +31,7 @@ def main():
         logger.info(f"Test case number {index}")
         size = data["n"]
         constraints = data["constraints"]
-        # run_genetic(size, constraints, population_size=500)
+        run_genetic(size, constraints, population_size=50)
         run_tabu(size, constraints)
 
 

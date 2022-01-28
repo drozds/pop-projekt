@@ -2,5 +2,5 @@
     "LOG_FILE": "auto",
     "LOG_LVL": "INFO",
     "LOG_RETENTION": "5d",
-    "INPUT_FILE": "./inputs/input.json"
+    "INPUT_FILE": "./inputs/case2.json"
 }

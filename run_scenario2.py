@@ -18,7 +18,7 @@ from shared.miscellaneous import (
 def main():
     warnings.filterwarnings("ignore")
     initialize_logger()
-    np.random.seed(12)
+    np.random.seed(21)
     # Change input file to case2.json
     inputs = get_input_data()
 
@@ -26,7 +26,7 @@ def main():
         logger.info(f"Test case number {index}")
         size = data["n"]
         constraints = data["constraints"]
-        run_genetic(size, constraints, population_size=30)
+        # run_genetic(size, constraints, population_size=30)
         run_tabu(size, constraints)
 
 
