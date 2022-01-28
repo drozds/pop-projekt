@@ -1,5 +1,6 @@
 {
     "LOG_FILE": "auto",
     "LOG_LVL": "INFO",
-    "LOG_RETENTION": "5d"
+    "LOG_RETENTION": "5d",
+    "INPUT_FILE": "./input.json"
 }

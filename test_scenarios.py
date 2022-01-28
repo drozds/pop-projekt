@@ -9,16 +9,23 @@ from algorithms.genetic import Genetic
 from shared.board import Board
 from algorithms.tabu import Tabu
 from shared.initialize_logger import initialize_logger
+from shared.settings_getter import get_settings
 
-
+@logger.catch
 def main():
     warnings.filterwarnings("ignore")
     initialize_logger()
     # seed, size, constraints
+
     np.random.seed(12)
     size, constraints = get_input_data()
     run_genetic(size, constraints)
     run_tabu(size, constraints)
+
+@logger.catch
+def run():
+    pass
+
 
 
 def run_tabu(size, constraints):
@@ -27,7 +34,7 @@ def run_tabu(size, constraints):
     start = time.time()
     tabu.run()
     end = time.time()
-    print("Finished in time: ", end - start)
+    logger.info("Finished in time: ", end - start)
 
 
 def run_genetic(size, constraints):
@@ -36,11 +43,11 @@ def run_genetic(size, constraints):
     start = time.time()
     if genetic.run():
         end = time.time()
-        print("Finished in time: ", end - start)
+        logger.info("Finished in time: ", end - start)
 
 
-def get_input_data():
-    with open("input.json") as json_file:
+def get_input_data() -> list:
+    with open(get_settings()["INPUT_FILE"]) as json_file:
         data = json.load(json_file)
         return data["n"], data["constraints"]
 
