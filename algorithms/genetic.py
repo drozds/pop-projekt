@@ -19,13 +19,17 @@ class Genetic(Solver):
         for i in range(0, pop_size):
             self._probability[i] = Range()
         self._solution_found = False
-        self.MUTATION = 0.9
+        self.MUTATION = 0.25
 
     def run(self):
         logger.info("Genetic algorithm has started solving the problem")
         i = 0
+        MAX_ITERATIONS = 10000
         while not self._solution_found:
-            if i % 10 == 0 and i != 0:
+            if i == MAX_ITERATIONS:
+                logger.warning(f"Reached max iterations limit ({MAX_ITERATIONS}). Solving aborted.")
+                return
+            if i % 500 == 0 and i != 0:
                 logger.info(f"Performed {i} iterations")
             self.asses_pop(self._pop, False)
             self.selection()

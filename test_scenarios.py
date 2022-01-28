@@ -25,13 +25,13 @@ def main():
     # run_genetic(size, constraints)
     # run_tabu(size, constraints)
 
-    np.random.seed(12)
+    np.random.seed(13)
     inputs = get_input_data()
     for index, data in enumerate(inputs):
         logger.info(f"Test case number {index}")
         size = data["n"]
         constraints = data["constraints"]
-        # run_genetic(size, constraints)
+        # run_genetic(size, constraints, population_size=500)
         run_tabu(size, constraints)
 
 

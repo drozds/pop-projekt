@@ -11,7 +11,6 @@ class Tabu(Solver):
         super().__init__(board, constraints)
         self.row_params = np.array([])
         self.TABU_LENGTH = 4
-        self.LOOP_RESET = 50000
         for i in range(self.get_size()):
             self.row_params = np.append(self.row_params, Row(0))
 
@@ -19,11 +18,13 @@ class Tabu(Solver):
         logger.info("Tabu algorithm has started solving the problem")
         loops = 0
         self.rand_init(self._board)
-
+        MAX_ITERATIONS = 10000
         while not self.is_solution(self._board):
-            if loops == self.LOOP_RESET:
-                self.rand_init(self._board)
-                loops = 0
+            if loops == MAX_ITERATIONS:
+                logger.warning(f"Reached max itertions limit ({MAX_ITERATIONS}). Solving aborted.")
+                return
+            if loops % 500 == 0 and loops != 0:
+                logger.info(f"Performed {loops} iterations")
 
             self.calc_rows_loss_func()
 
