@@ -17,15 +17,19 @@ def main():
     initialize_logger()
     # seed, size, constraints
 
+    # np.random.seed(12)
+    # size, constraints = get_input_data()
+    # run_genetic(size, constraints)
+    # run_tabu(size, constraints)
+
     np.random.seed(12)
-    size, constraints = get_input_data()
-    run_genetic(size, constraints)
-    run_tabu(size, constraints)
-
-@logger.catch
-def run():
-    pass
-
+    inputs = get_input_data()
+    for index, data in enumerate(inputs):
+        logger.info(f"Test case number {index}")
+        size = data["n"]
+        constraints = data["constraints"]
+        run_genetic(size, constraints)
+        run_tabu(size, constraints)
 
 
 def run_tabu(size, constraints):
@@ -34,7 +38,7 @@ def run_tabu(size, constraints):
     start = time.time()
     tabu.run()
     end = time.time()
-    logger.info("Finished in time: ", end - start)
+    logger.info(f"Finished in {round(end - start, 2)} seconds")
 
 
 def run_genetic(size, constraints):
@@ -43,14 +47,14 @@ def run_genetic(size, constraints):
     start = time.time()
     if genetic.run():
         end = time.time()
-        logger.info("Finished in time: ", end - start)
+        logger.info(f"Finished in {round(end-start, 2)} seconds")
 
 
 def get_input_data() -> list:
     with open(get_settings()["INPUT_FILE"]) as json_file:
         data = json.load(json_file)
-        return data["n"], data["constraints"]
-
+        #return data["n"], data["constraints"]
+    return data
 
 if __name__ == "__main__":
     main()
