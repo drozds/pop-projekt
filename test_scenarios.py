@@ -2,15 +2,19 @@
 import json
 import time
 import warnings
-
 import numpy as np
+from loguru import logger
+
 from algorithms.genetic import Genetic
 from shared.board import Board
 from algorithms.tabu import Tabu
+from shared.initialize_logger import initialize_logger
 
 
 def main():
     warnings.filterwarnings("ignore")
+    initialize_logger()
+    # seed, size, constraints
     np.random.seed(12)
     size, constraints = get_input_data()
     run_genetic(size, constraints)

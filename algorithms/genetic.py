@@ -1,4 +1,6 @@
 import numpy as np
+from loguru import logger
+
 from algorithms.solver import Solver
 from shared.board import Board
 
@@ -20,10 +22,11 @@ class Genetic(Solver):
         self.MUTATION = 0.9
 
     def run(self):
-        print("Genetic algorithm has started solving the problem")
+        logger.info("Genetic algorithm has started solving the problem")
         i = 0
         while not self._solution_found:
-            print(i)
+            if i % 10 == 0 and i != 0:
+                logger.info(f"Performed {i} iterations")
             self.asses_pop(self._pop, False)
             self.selection()
             self.crossover()
@@ -32,8 +35,8 @@ class Genetic(Solver):
             self.succession()
             i += 1
 
-        print("Solution: ")
-        print(self._board)
+        logger.success(f"Solution found after {i} iteration(s): ")
+        logger.success(self._board)
         return True
 
     def asses_pop(self, pop, is_children):

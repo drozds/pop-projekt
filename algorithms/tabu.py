@@ -1,5 +1,7 @@
 import math
 import numpy as np
+from loguru import logger
+
 from algorithms.solver import Solver
 from shared.board import Board
 
@@ -14,7 +16,7 @@ class Tabu(Solver):
             self.row_params = np.append(self.row_params, Row(0))
 
     def run(self):
-        print("Tabu algorithm has started solving the problem")
+        logger.info("Tabu algorithm has started solving the problem")
         loops = 0
         self.rand_init(self._board)
 
@@ -31,8 +33,8 @@ class Tabu(Solver):
                 self.add_to_tabu(row)
 
             loops += 1
-        print("Solution: ")
-        print(self._board)
+        logger.success("Solution: ")
+        logger.success(self._board)
 
     def calc_rows_loss_func(self):
         for row in range(self.get_size()):
